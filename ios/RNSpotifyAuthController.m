@@ -48,7 +48,7 @@
 		self.view.backgroundColor = [UIColor whiteColor];
 		self.modalPresentationStyle = UIModalPresentationFormSheet;
 		
-		_webController.webView.delegate = self;
+		_webController.webView.UIDelegate = self;
 		//_webController.title = @"Log into Spotify";
 		_webController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(didSelectCancelButton)];
 		
