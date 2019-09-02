@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import "RNSpotifySessionData.h"
 #import "RNSpotifyLoginOptions.h"
 #import "RNSpotifyCompletion.h"
-
 
 @interface RNSpotifyAuthController : UINavigationController
 

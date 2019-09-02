@@ -191,7 +191,7 @@
 
 #pragma mark - UIWebViewDelegate
 
--(BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+-(BOOL)webView:(WKWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
 	if([self canHandleRedirectURL:request.URL]) {
 		[_progressView showInView:self.view animated:YES completion:nil];
 		[self handleRedirectURL:request.URL];
