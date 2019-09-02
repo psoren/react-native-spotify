@@ -4,7 +4,7 @@
 //
 //  Created by Luis Finke on 11/5/17.
 //  Copyright © 2017 Facebook. All rights reserved.
-//
+//  Modified by Parker Sorenson on 09/01/19
 
 #import "RNSpotifyAuthController.h"
 #import "RNSpotifyWebViewController.h"
@@ -188,10 +188,7 @@
 	}
 }
 
-
-#pragma mark - UIWebViewDelegate
-
--(BOOL)webView:(WKWebView*)webView decidePolicyForNavigationAction:(NSURLRequest*)request {
+-(BOOL)webView:(WKWebView *)webView decidePolicyForNavigationAction:(NSURLRequest*)request {
 	if([self canHandleRedirectURL:request.URL]) {
 		[_progressView showInView:self.view animated:YES completion:nil];
 		[self handleRedirectURL:request.URL];
