@@ -38,6 +38,7 @@
 		_webController = rootController;
 		_progressView = [[RNSpotifyProgressView alloc] init];
 		
+		
 		_options = options;
 		_xssState = [NSUUID UUID].UUIDString;
 		
@@ -47,8 +48,7 @@
 		self.view.backgroundColor = [UIColor whiteColor];
 		self.modalPresentationStyle = UIModalPresentationFormSheet;
 		
-		_webController.webView.UIDelegate = self;
-
+		_webController.webView.delegate = self;
 		//_webController.title = @"Log into Spotify";
 		_webController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(didSelectCancelButton)];
 		
@@ -191,7 +191,7 @@
 
 #pragma mark - UIWebViewDelegate
 
--(BOOL)webView:(WKWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+-(BOOL)webView:(WKWebView*)webView decidePolicyForNavigationAction:(NSURLRequest*)request {
 	if([self canHandleRedirectURL:request.URL]) {
 		[_progressView showInView:self.view animated:YES completion:nil];
 		[self handleRedirectURL:request.URL];
